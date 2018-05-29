@@ -6,6 +6,9 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+/**
+ * 获取身份证信息
+ */
 public class IDcardUtil {
     //设置APPID/AK/SK
     public static final String APP_ID = "";
@@ -44,12 +47,12 @@ public class IDcardUtil {
         // String image = "/root/Pictures/webwxgetmsgimg.jpg";
         JSONObject res = client.idcard(imagePath, idCardSide,options);
         IDcard iDcard = new IDcard();
-        iDcard.setName(IDcardUtilUtil.get(res,"姓名"));
-        iDcard.setNation(IDcardUtilUtil.get(res,"民族"));
-        iDcard.setAddress(IDcardUtilUtil.get(res,"住址"));
-        iDcard.setCitizenshipNum(IDcardUtilUtil.get(res,"公民身份号码"));
-        iDcard.setBirthday(IDcardUtilUtil.get(res,"出生"));
-        iDcard.setSex(IDcardUtilUtil.get(res,"性别"));
+        iDcard.setName(BaiduAiJsonUtil.get(res,"姓名"));
+        iDcard.setNation(BaiduAiJsonUtil.get(res,"民族"));
+        iDcard.setAddress(BaiduAiJsonUtil.get(res,"住址"));
+        iDcard.setCitizenshipNum(BaiduAiJsonUtil.get(res,"公民身份号码"));
+        iDcard.setBirthday(BaiduAiJsonUtil.get(res,"出生"));
+        iDcard.setSex(BaiduAiJsonUtil.get(res,"性别"));
 
         return iDcard;
     }
@@ -86,9 +89,9 @@ public class IDcardUtil {
         // String image = "/root/Pictures/webwxgetmsgimg2.jpg";
         JSONObject res = client.idcard(imagePath, idCardSide,options);
         IDcard iDcard = new IDcard();
-        iDcard.setExpirationDate(IDcardUtilUtil.get(res,"失效日期"));
-        iDcard.setIssuingOrganization(IDcardUtilUtil.get(res,"签发机关"));
-        iDcard.setIssuingDate(IDcardUtilUtil.get(res,"签发日期"));
+        iDcard.setExpirationDate(BaiduAiJsonUtil.get(res,"失效日期"));
+        iDcard.setIssuingOrganization(BaiduAiJsonUtil.get(res,"签发机关"));
+        iDcard.setIssuingDate(BaiduAiJsonUtil.get(res,"签发日期"));
         return iDcard;
     }
 
